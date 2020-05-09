@@ -9,9 +9,9 @@ exports.routesConfig = function (app) {
         EyewitnessController.insert
     ]);
 
-    // app.get('/report', [
-    //     EyewitnessController.list
-    //     ]);
+    app.get('/reports', [
+        EyewitnessController.list
+        ]);
 
     // app.get('/report/:reportId', [
     //     EyewitnessController.getById

@@ -2,7 +2,9 @@ POST http://localhost:3000/report
 Content-Type: application/json
 
 {
-    "location": "sabo",
-    "description": "two sedans crashed at sabo roundabout",
+    "location": "yaba",
+    "description": "two keke napep jam each other",
     "reportCount": 1
 }
+###
+GET http://localhost:3000/reports

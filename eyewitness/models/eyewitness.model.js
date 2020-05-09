@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const eyewitnessSchema = new Schema({
     location: String,
-    decsription: String,
+    description: String,
     reportCount: Number
     
  });
@@ -20,4 +20,20 @@ eyewitnessSchema.set('toJSON', {
 exports.createEyewReport = (reportData) => {
     const report = new Eyewitness(reportData);
     return report.save();
+};
+
+
+exports.list = (perPage, page) => {
+    return new Promise((resolve, reject) => {
+        Eyewitness.find()
+            .limit(perPage)
+            .skip(perPage * page)
+            .exec(function (err, users) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(users);
+                }
+            })
+    });
 };
