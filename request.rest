@@ -2,7 +2,7 @@ POST http://localhost:3000/report
 Content-Type: application/json
 
 {
-    "location": "yaba",
+    "location": "lekki",
     "description": "two keke napep jam each other",
     "reportCount": 1
 }
