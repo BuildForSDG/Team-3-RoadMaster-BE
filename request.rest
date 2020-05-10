@@ -1,9 +1,10 @@
+
 POST http://localhost:3000/report
 Content-Type: application/json
 
 {
-    "location": "ibadan",
-    "description": "a bus and a car",
+    "location": "lekki",
+    "description": "two keke napep jam each other",
     "reportCount": 1
 }
 ###
