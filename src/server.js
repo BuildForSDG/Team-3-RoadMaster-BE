@@ -2,7 +2,7 @@ import http from 'http';
 import socketIO from 'socket.io';
 import app from './app';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const server = http.createServer(app);
 
@@ -19,3 +19,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(PORT);
+
+export default server;
