@@ -14,9 +14,11 @@ const options = {
     
 };
 
+//mongodb://localhost:27017/RoadMaster
+
 const connectWithRetry = () => {
     console.log('MongoDB connection with retry')
-    mongoose.connect("mongodb://localhost:27017/RoadMaster", options).then(()=>{
+    mongoose.connect("mongodb://be-team:beteam@ds237475.mlab.com:37475/roadmaster-be", options).then(()=>{
         console.log('MongoDB is connected')
     }).catch(err=>{
         console.log('MongoDB connection unsuccessful, retry after 5 seconds. ', ++count);
