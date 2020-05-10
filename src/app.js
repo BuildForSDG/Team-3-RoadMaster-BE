@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
-app.use('/test', (req, res, next) => {
+app.use('/test', (req, res) => {
   res.status(200).json('received');
 });
 

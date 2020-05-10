@@ -10,7 +10,7 @@ const io = socketIO(server);
 
 io.on('connection', (socket) => {
   socket.username = 'Team 3';
-  console.log(`${socket.username} just connected`);
+  // console.log(`${socket.username} just connected`);
 
   socket.on('sos', (data) => {
     io.sockets.emit('reply', { message: 'help is on the way' });
