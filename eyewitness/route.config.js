@@ -1,6 +1,6 @@
 const EyewitnessController = require('./controllers/eyewitness.controller');
 
-exports.routesConfig = function (app) {
+exports.routesConfig = (app) => {
   app.post('/report', [
     EyewitnessController.insert
   ]);
