@@ -1,13 +1,15 @@
 const EyewitnessController = require('./controllers/eyewitness.controller');
 
 exports.routesConfig = function (app) {
-  app.post('/report', [
+  app.post('/report', 
+  [
     EyewitnessController.insert
   ]);
 
-  app.get('/reports', [
+  app.get('/reports', 
+  [
     EyewitnessController.list
-    ]);
+  ]);
   // app.get('/report/:reportId', [
   //     EyewitnessController.getById
   // ]);

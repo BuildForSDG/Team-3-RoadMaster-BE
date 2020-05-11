@@ -8,7 +8,7 @@ const EyewitnessRouter = require('./eyewitness/route.config');
 
 const config = require('./common/config/env.config');
 
-app.use(function (req, res, next) {
+app.use(function defaultsss(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
