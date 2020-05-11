@@ -16,15 +16,26 @@ exports.createEyewReport = (reportData) => {
   const report = new Eyewitness(reportData);
   return report.save();
 };
-exports.list = (perPage, page) => {
-return new Promise((resolve, reject) => {
-Eyewitness.find()
-.limit(perPage)
-.skip(perPage * page)
-.exec( (err, reports) => {
-if (err) { 
-reject(err);
-} else {
-resolve(reports);
-}})});
-};
+
+exports.list = (perPage, page)=> new Promise((resolve, reject) => {
+  Eyewitness.find().limit(perPage).skip(perPage*page).exec((err, reports)=>{
+    if(err){
+      reject(err)
+    }else{
+      resolve(reports)
+    }
+  })
+})
+
+// exports.list = (perPage, page) => {
+// return new Promise((resolve, reject) => {
+// Eyewitness.find()
+// .limit(perPage)
+// .skip(perPage * page)
+// .exec( (err, reports) => {
+// if (err) { 
+// reject(err);
+// } else {
+// resolve(reports);
+// }})});
+// };
