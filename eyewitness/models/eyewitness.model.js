@@ -8,10 +8,10 @@ const eyewitnessSchema = new Schema({
     location: String,
     description: String,
     reportCount: Number
-    
+
  });
 
- 
+
 const Eyewitness = mongoose.model('Eyewitnessreports', eyewitnessSchema);
 
     // Ensure virtual fields are serialised.
