@@ -1,4 +1,4 @@
-const EyewitnessModel = require('../models/eyewitness.model')
+const EyewitnessModel = require('../models/eyewitness.model');
 
 exports.insert = (req, res) => {
     const values = req.body

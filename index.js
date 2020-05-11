@@ -1,10 +1,11 @@
 const config = require('./common/config/env.config');
-//console.log(`Your port is ${port}`); // 3000
+
 
 const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
 
+const app = express();
+
+const bodyParser = require('body-parser');
 
 const EyewitnessRouter = require('./eyewitness/route.config');
 
@@ -29,5 +30,5 @@ EyewitnessRouter.routesConfig(app);
 
 
 app.listen(config.port, function () {
-    console.log('app listening at port %s', config.port);
+    //console.log('app listening at port %s', config.port);
 });
