@@ -15,7 +15,7 @@ const options = {
     //geting rid off the depreciation errors
     useNewUrlParser: true,
     useUnifiedTopology: true
-    
+
 };
 //details of my local db
 //mongodb://localhost:27017/RoadMaster
