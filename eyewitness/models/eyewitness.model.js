@@ -13,14 +13,14 @@ const eyewitnessSchema = new Schema({
  
 const Eyewitness = mongoose.model('Eyewitnessreports', eyewitnessSchema);
 
-// Ensure virtual fields are serialised.
-eyewitnessSchema.set('toJSON', {
+    // Ensure virtual fields are serialised.
+    eyewitnessSchema.set('toJSON', {
     virtuals: true
 });
 
 
 exports.createEyewReport = (reportData) => {
-    console.log(reportData.reportCount)
+    //console.log(reportData.reportCount)
     // if(Eyewitness.find({ $text: { $search: reportData.vehiclesInvolved + " " + reportData.location } })){
 
     // }

@@ -2,8 +2,8 @@ const EyewitnessModel = require('../models/eyewitness.model')
 
 exports.insert = (req, res) => {
     const values = req.body
-    console.log(req.body.description)
-    console.log(values)
+    // console.log(req.body.description)
+    // console.log(values)
     
     EyewitnessModel.createEyewReport(req.body)
         .then((result) => {
