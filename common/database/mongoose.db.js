@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-let count = 0;
+
+const count = 0;
 
 const options = {
     autoIndex: false, // Don't build indexes
@@ -18,7 +19,7 @@ const options = {
 
 const connectWithRetry = () => {
     //console.log('MongoDB connection with retry')
-    mongoose.connect("mongodb://sekinat:sekinat1@ds237475.mlab.com:37475/roadmaster-be", options).then(()=>{
+    mongoose.connect("mongodb://sekinat:sekinat1@ds237475.mlab.com:37475/roadmaster-be", options).then(() => {
        // console.log('MongoDB is connected')
     }).catch(err=>{
        // console.log('MongoDB connection unsuccessful, retry after 5 seconds. ', ++count);

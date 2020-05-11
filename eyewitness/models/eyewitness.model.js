@@ -1,4 +1,5 @@
 const mongoose = require('../../common/database/mongoose.db').mongoose;
+
 const Schema = mongoose.Schema;
 
 //const eyewitnesscount = 0  // number of users reporting from this location
