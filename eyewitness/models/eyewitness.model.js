@@ -7,7 +7,7 @@ const eyewitnessSchema = new Schema({
   description: String,
   reportCount: Number
 });
- 
+
 const Eyewitness = mongoose.model('Eyewitnessreports', eyewitnessSchema);
 
 eyewitnessSchema.set('toJSON', { virtuals: true });
@@ -18,11 +18,11 @@ exports.createEyewReport = (reportData) => {
 };
 
 exports.list = (perPage, page)=> new Promise((resolve, reject) => {
-  Eyewitness.find().limit(perPage).skip(perPage*page).exec((err, reports)=>{
+  Eyewitness.find().limit(perPage).skip(perPage * page).exec((err, reports) => {
     if (err) {
       reject(err);
     } else {
       resolve(reports);
     }
   })
-})
+});
