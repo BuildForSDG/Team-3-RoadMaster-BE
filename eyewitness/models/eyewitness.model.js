@@ -27,6 +27,6 @@ exports.list = (perPage, page) => {
       } else {
         resolve(reports);
       }
-    });
+  });
   });
 };
