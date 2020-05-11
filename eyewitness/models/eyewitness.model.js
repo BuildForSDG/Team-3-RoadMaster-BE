@@ -17,12 +17,12 @@ exports.createEyewReport = (reportData) => {
   return report.save();
 };
 
-exports.list = (perPage, page)=> new Promise((resolve, reject) => {
+exports.list = (perPage, page) => new Promise((resolve, reject) => {
   Eyewitness.find().limit(perPage).skip(perPage * page).exec((err, reports) => {
     if (err) {
       reject(err);
     } else {
       resolve(reports);
     }
-  })
+  });
 });
