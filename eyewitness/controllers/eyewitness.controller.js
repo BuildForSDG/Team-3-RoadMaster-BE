@@ -3,7 +3,7 @@ const EyewitnessModel = require('../models/eyewitness.model');
 exports.insert = (req, res) => {
   EyewitnessModel.createEyewReport(req.body)
     .then((result) => {
-      res.status(201).send({ id: result._id });
+      res.status(201).send({ id: result.id });
     });
 };
 
