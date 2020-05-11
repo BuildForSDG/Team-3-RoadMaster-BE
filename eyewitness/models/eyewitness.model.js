@@ -1,6 +1,6 @@
 const { mongoose } = require('../../common/database/mongoose.db');
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const eyewitnessSchema = new Schema({
   location: String,
