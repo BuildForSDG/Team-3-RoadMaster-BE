@@ -22,7 +22,7 @@ exports.list = (perPage, page) => {
     .limit(perPage)
     .skip(perPage * page)
     .exec( (err, reports) => {
-      if (err) {
+      if (err) { 
         reject(err);
       } else {
         resolve(reports);
