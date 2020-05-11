@@ -6,11 +6,10 @@ const eyewitnessSchema = new Schema({
   location: String,
   description: String,
   reportCount: Number
-
  });
 const Eyewitness = mongoose.model('Eyewitnessreports', eyewitnessSchema);
 
-eyewitnessSchema.set('toJSON', {virtuals: true });
+eyewitnessSchema.set('toJSON', { virtuals: true });
 
 exports.createEyewReport = (reportData) => {
   const report = new Eyewitness(reportData);
@@ -29,4 +28,4 @@ exports.list = (perPage, page) => {
         }
       });
   });
-}
+};

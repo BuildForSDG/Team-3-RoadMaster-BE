@@ -8,7 +8,6 @@ exports.routesConfig = function (app) {
   app.get('/reports', [
     EyewitnessController.list
     ]);
-
   // app.get('/report/:reportId', [
   //     EyewitnessController.getById
   // ]);
