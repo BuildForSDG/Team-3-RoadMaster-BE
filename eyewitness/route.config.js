@@ -1,8 +1,6 @@
 const EyewitnessController = require('./controllers/eyewitness.controller');
 
-const config = require('../common/config/env.config');
-
-
+//const config = require('../common/config/env.config');
 
 exports.routesConfig = function (app) {
 
