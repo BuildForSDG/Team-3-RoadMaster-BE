@@ -22,4 +22,10 @@ io.on('connection', (socket) => {
 
 server.listen(PORT);
 
+
+// Uncomment to log the server processes
+// server.on('listening', () => {
+//   console.log(`server running on localhost:${PORT}`);
+// });
+
 export default server;
