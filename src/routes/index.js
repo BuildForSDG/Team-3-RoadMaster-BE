@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import sosRoute from './sosRoute';
-import reportRoute from './reportRoute';
+import eyeWitnessRoute from './EyeWitnessRoute';
 
 const router = Router();
 
-router.post('/sos', sosRoute);
-router.post('/report', reportRoute);
+router.use('/sos', sosRoute);
+router.use('/report', eyeWitnessRoute);
 
 export default router;
