@@ -1,27 +1,17 @@
 
-POST http://localhost:3001/report
+POST http://localhost:3000/report/eyeWitness
 Content-Type: application/json
 
 {
-    "location": "sango",
+    "location": "eyewitness 1",
     "description": "two keke napep jam each other",
     "reportCount": 1
 }
 ###
-GET http://localhost:3001/reports
+GET http://localhost:3000/report/eyeWitness
 
 ###
-POST http://localhost:3001/eyewitnessReport
-Content-Type: application/json
-
-{
-    "location": "sabo",
-    "description": "two keke napep jam each other",
-    "reportCount": 1
-}
-
-###
-POST http://localhost:3001/sos
+POST http://localhost:3000/report/eyeWitness
 Content-Type: application/json
 
 {
@@ -29,3 +19,8 @@ Content-Type: application/json
     "description": "two keke napep jam each other",
     "reportCount": 1
 }
+
+###
+POST http://localhost:3000/sos
+Content-Type: application/json
+
