@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const UserModel = {}
 
 const userSchema = new Schema({
-  userId: String,
+  name: String,
   age: Number,
   bloodType: String,
   genotype: String,
@@ -27,3 +27,15 @@ UserModel.createUser = (userData) => {
   const user = new User(userData);
   return user.save();
 };
+
+UserModel.list = (perPage, page) => new Promise((resolve, reject) => {
+  User.find().limit(perPage).skip(perPage * page).exec((err, users) => {
+    if (err) {
+      reject(err);
+    } else {
+      resolve(users)
+    }
+  });
+});
+
+export default UserModel

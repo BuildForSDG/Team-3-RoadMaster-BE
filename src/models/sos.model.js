@@ -12,3 +12,5 @@ const sosSchema = new Schema({
 const Sos = mongoose.model('Sos', sosSchema);
 
 sosSchema.set('toJSON', { virtuals: true })
+
+export default SosModel;
