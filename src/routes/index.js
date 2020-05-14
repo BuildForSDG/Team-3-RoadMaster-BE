@@ -4,8 +4,6 @@ import sosRoute from './sosRoute';
 
 import reportRoute from './reportRoute';
 
-import routesConfig from './route.config';
-
 const EyewitnessController = require('../controllers/eyewitness.controller');
 
 const router = Router();
