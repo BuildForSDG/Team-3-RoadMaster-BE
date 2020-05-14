@@ -1,14 +1,18 @@
-const EyewitnessModel = require('../models/eyewitness.model');
+import EyeWitnessModel from '../models/eyewitness.model';
+
+// Object to hold the controller logic for export. New methods can be added to this object and used
+// in the routes files accordingly
+const EyeWitnessController = {};
 
 
-exports.insert = (req, res) => {
-  EyewitnessModel.createEyewReport(req.body)
+EyeWitnessController.insert = (req, res) => {
+  EyeWitnessModel.createEyewReport(req.body)
     .then((result) => {
       res.status(201).send({ id: result.id });
     });
 };
 
-exports.list = (req, res) => {
+EyeWitnessController.list = (req, res) => {
   const limit = req.query.limit && req.query.limit <= 100 ? parseInt(req.query.limit, 10) : 10;
   let page = 0;
   if (req.query) {
@@ -17,8 +21,10 @@ exports.list = (req, res) => {
       page = Number.isInteger(req.query.page) ? req.query.page : 0;
     }
   }
-  EyewitnessModel.list(limit, page)
+  EyeWitnessModel.list(limit, page)
     .then((result) => {
       res.status(200).send(result);
     });
 };
+
+export default EyeWitnessController;

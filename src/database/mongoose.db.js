@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const options = {
   autoIndex: false,
-  reconnectTries: 30,
-  reconnectInterval: 500,
+  // reconnectTries: 30,
+  // reconnectInterval: 500,
   poolSize: 10,
   bufferMaxEntries: 0,
   useNewUrlParser: true,
@@ -17,4 +17,5 @@ const connectWithRetry = () => {
   });
 };
 connectWithRetry();
-exports.mongoose = mongoose;
+
+export default mongoose;

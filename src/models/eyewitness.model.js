@@ -1,7 +1,8 @@
-const { mongoose } = require('../database/mongoose.db');
-
+import mongoose from '../database/mongoose.db';
 
 const { Schema } = mongoose;
+
+const EyeWitnessModel = {};
 
 const eyewitnessSchema = new Schema({
   location: String,
@@ -13,12 +14,12 @@ const Eyewitness = mongoose.model('Eyewitnessreports', eyewitnessSchema);
 
 eyewitnessSchema.set('toJSON', { virtuals: true });
 
-exports.createEyewReport = (reportData) => {
+EyeWitnessModel.createEyewReport = (reportData) => {
   const report = new Eyewitness(reportData);
   return report.save();
 };
 
-exports.list = (perPage, page) => new Promise((resolve, reject) => {
+EyeWitnessModel.list = (perPage, page) => new Promise((resolve, reject) => {
   Eyewitness.find().limit(perPage).skip(perPage * page).exec((err, reports) => {
     if (err) {
       reject(err);
@@ -27,3 +28,5 @@ exports.list = (perPage, page) => new Promise((resolve, reject) => {
     }
   });
 });
+
+export default EyeWitnessModel;
