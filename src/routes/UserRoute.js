@@ -9,4 +9,3 @@ router.post('/user', UsersController.insert);
 router.get('/users', UsersController.list);
 
 export default router;
-
