@@ -21,8 +21,17 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/sos
+POST http://localhost:3000/sos/soss
 Content-Type: application/json
+
+{
+  "location": "yaba",
+  "userId": 1
+}
+
+###
+GET http://localhost:3000/sos/soss
+
 
 ###
 POST http://localhost:3000/alluser/user
