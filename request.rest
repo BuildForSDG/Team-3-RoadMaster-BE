@@ -25,8 +25,7 @@ POST http://localhost:3000/sos/soss
 Content-Type: application/json
 
 {
-  "location": "yaba",
-  "userId": 1
+  "location": "yaba"
 }
 
 ###
