@@ -19,7 +19,7 @@ SosController.list = (req, res) => {
     }
   }
   SosModel.list(limit, page).then((result) => {
-    res.status(201).send(result)
+    res.status(201).send(result);
   });
 };
 

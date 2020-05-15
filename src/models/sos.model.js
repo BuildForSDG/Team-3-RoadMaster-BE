@@ -1,5 +1,6 @@
 import mongoose from '../database/mongoose.db';
-import UserSchema from './users.model';
+
+//import UserSchema from './users.model';
 
 const { Schema } = mongoose;
 
@@ -7,13 +8,13 @@ const SosModel = {};
 
 const sosSchema = new Schema({
   location: String,
-  userId: {id: { type: Schema.Types.ObjectId, ref: 'Users'}},
+  userId: {id: { type: Schema.Types.ObjectId, ref: 'Users' }},
   updated: { type: Date, default: Date.now() }
 });
 
 const Sos = mongoose.model('Sos', sosSchema);
 
-sosSchema.set('toJSON', { virtuals: true })
+sosSchema.set('toJSON', { virtuals: true });
 
 SosModel.createSos = (sosDetails) => {
   const sos = new Sos(sosDetails);

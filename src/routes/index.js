@@ -7,6 +7,6 @@ const router = Router();
 
 router.use('/sos', sosRoute);
 router.use('/report', eyeWitnessRoute);
-router.use('/alluser' , userRoute);
+router.use('/alluser', userRoute);
 
 export default router;

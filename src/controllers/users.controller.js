@@ -4,7 +4,7 @@ const UsersController = {};
 
 UsersController.insert = (req, res) => {
   UsersModel.createUser(req.body).then((result) => {
-    res.status(201).send({ id: result.id })
+    res.status(201).send({ id: result.id });
   });
 };
 
@@ -18,7 +18,7 @@ UsersController.list = (req, res) => {
     }
   }
   UsersModel.list(limit, page).then((result) => {
-    res.status(201).send(result)
+    res.status(201).send(result);
   });
 };
 export default UsersController;

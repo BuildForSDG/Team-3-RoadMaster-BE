@@ -1,8 +1,8 @@
-import mongoose from '../database/mongoose.db'
+import mongoose from '../database/mongoose.db';
 
 const { Schema } = mongoose;
 
-const UserModel = {}
+const UserModel = {};
 
 const userSchema = new Schema({
   name: String,
@@ -11,7 +11,7 @@ const userSchema = new Schema({
   genotype: String,
   nextofkinNum: String,
   emergencyNum: String,
-  knownIllnesses: [{type: String}],
+  knownIllnesses: [{ type: String }],
   state: String,
   city: String,
   lga: String,
@@ -21,7 +21,7 @@ const userSchema = new Schema({
 
 const User = mongoose.model('Users', userSchema);
 
-userSchema.set('toJSON', { virtuals:true })
+userSchema.set('toJSON', { virtuals: true });
 
 UserModel.createUser = (userData) => {
   const user = new User(userData);
@@ -33,9 +33,9 @@ UserModel.list = (perPage, page) => new Promise((resolve, reject) => {
     if (err) {
       reject(err);
     } else {
-      resolve(users)
+      resolve(users);
     }
   });
 });
 
-export default UserModel
+export default UserModel;
