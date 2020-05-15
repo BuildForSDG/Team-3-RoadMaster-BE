@@ -24,8 +24,8 @@ server.listen(PORT);
 
 
 // Uncomment to log the server processes
-server.on('listening', () => {
-  //console.log(`server running on localhost:${PORT}`);
-});
+// server.on('listening', () => {
+//   //console.log(`server running on localhost:${PORT}`);
+// });
 
 export default server;
