@@ -6,9 +6,7 @@ const { Schema } = mongoose;
 
 const EyeWitnessModel = {};
 
-/*** 
- * reportCount still needs handling
- */
+/** reportCount still needs handling */
 
 const eyewitnessSchema = new Schema({
   location: String,

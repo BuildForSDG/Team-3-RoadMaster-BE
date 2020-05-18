@@ -13,7 +13,7 @@ IncidentreportController.insert = (req, res) => {
   } else {
     eyewitnessModel.createEyewReport(req.body)
       .then((result) => {
-        res.status(201).send({ id: result.id});
+        res.status(201).send({ id: result.id });
       });
   }
 };

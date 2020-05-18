@@ -1,18 +1,16 @@
-/*** 
- * this model is not currently being used
- */
+/*** this model is not currently being used */
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
-const IncidentReportModel = {}
+const IncidentReportModel = {};
 
 const irSchema = new Schema({
   location: String,
   userId: { id: { type: Schema.Types.ObjectId, ref: 'Users' } },
   description: String,
-  pictures: [{ type: Buffer} ],
-  reportType: {type: String, possibleValues: ['sos', 'eyewitness'] }
+  pictures: [{ type: Buffer }],
+  reportType: { type: String, possibleValues: ['sos', 'eyewitness'] }
 });
 
 const Ireport = mongoose.model('Incidentreports', irSchema);
