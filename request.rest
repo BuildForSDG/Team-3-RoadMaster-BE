@@ -39,5 +39,5 @@ Content-Type: application/json
 {
   "location": "location1",
   "description": "two keke napep jam each other",
-  "reportType": "sos"
+  "reportType": "eyewitness"
 }
