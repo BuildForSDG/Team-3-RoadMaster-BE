@@ -11,7 +11,7 @@ POST http://localhost:3001/alluser/user
 Content-Type: application/json
 
 {
-  "name": "j doe",
+  "name": "jane doe",
   "email": "jdoe@gmail.com",
   "password": "294375847589",
   "age": 90,
@@ -20,8 +20,8 @@ Content-Type: application/json
   "nextofkinNum": "1938384849",
   "emergencyNum": "848494040",
   "knownIllnesses": ["diabetes", "hBP"],
-  "state": "lagos",
-  "city": "lagos",
+  "state": "ibadan",
+  "city": "city 1",
   "lga": "kosofe",
   "residentialAdd": "some address"
 }
@@ -30,7 +30,7 @@ Content-Type: application/json
 GET http://localhost:3001/alluser/users
 
 ###
-GET http://localhost:3001/alluser/5ec2ab509e538036a8ef7407
+GET http://localhost:3001/alluser/5ec2ff715035ac2144fa6978
 
 ###
 POST http://localhost:3001/incident/report
