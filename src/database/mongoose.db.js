@@ -12,7 +12,7 @@ const options = {
 
 const connectWithRetry = () => {
   mongoose.connect('mongodb://sekinat:sekinat1@ds237475.mlab.com:37475/roadmaster-be', options).then(() => {
-  }).catch((error) => {
+  }).catch(() => {
     setTimeout(connectWithRetry, 5000);
   });
 };
