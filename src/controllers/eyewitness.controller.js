@@ -6,6 +6,7 @@ const EyeWitnessController = {};
 
 
 EyeWitnessController.insert = (req, res) => {
+  console.log(req.body.reportType)
   EyeWitnessModel.createEyewReport(req.body)
     .then((result) => {
       res.status(201).send({ id: result.id });
@@ -25,6 +26,13 @@ EyeWitnessController.list = (req, res) => {
     .then((result) => {
       res.status(200).send(result);
     });
+};
+
+EyeWitnessController.getById = (req, res) => {
+  console.log(req.body)
+  EyeWitnessModel.findById(req.params.userId).then((result) => {
+    res.status(200).send(result);
+  });
 };
 
 export default EyeWitnessController;

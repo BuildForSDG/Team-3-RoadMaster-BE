@@ -17,7 +17,8 @@ const userSchema = new Schema({
   state: String,
   city: String,
   lga: String,
-  residentialAdd: String
+  residentialAdd: String,
+  creationdate: { type: Date, default: Date.now() }
 
 });
 

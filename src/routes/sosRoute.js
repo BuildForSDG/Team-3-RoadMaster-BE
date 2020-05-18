@@ -8,4 +8,6 @@ router.post('/', sosController.insert);
 
 router.get('/:userId', sosController.getById);
 
+router.get('/', sosController.list);
+
 export default router;

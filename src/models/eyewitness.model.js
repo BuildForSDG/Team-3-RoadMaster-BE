@@ -1,16 +1,27 @@
 import mongoose from '../database/mongoose.db';
 
+import UserSchema from '../models/users.model';
+
 const { Schema } = mongoose;
 
 const EyeWitnessModel = {};
 
+/***
+ * reportCount still needs handling
+ */
+
 const eyewitnessSchema = new Schema({
   location: String,
+  userId: { id: { type: Schema.Types.ObjectId, ref: 'Users' } },
   description: String,
-  reportCount: Number
+  pictures: [{ type: Buffer}],
+  reportType: {type: String, possibleValues: ['sos', 'eyewitness']},
+  creationTime: { type: Date, default: Date.now() }
 });
 
 const Eyewitness = mongoose.model('Eyewitnessreports', eyewitnessSchema);
+
+//EyeWitnessModel.Eyewitness = Eyewitness;
 
 eyewitnessSchema.set('toJSON', { virtuals: true });
 
@@ -28,5 +39,15 @@ EyeWitnessModel.list = (perPage, page) => new Promise((resolve, reject) => {
     }
   });
 });
+
+EyeWitnessModel.findById = (id) => {
+  //console.log(UserSchema.User)
+  return UserSchema.User.findById(id).then((result) => {
+    result = result.toJSON();
+    delete result._id;
+    delete result.__v;
+    return result;
+  });
+};
 
 export default EyeWitnessModel;

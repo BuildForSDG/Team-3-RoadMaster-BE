@@ -9,10 +9,15 @@ const SosModel = {};
 const sosSchema = new Schema({
   location: String,
   userId: { id: { type: Schema.Types.ObjectId, ref: 'Users' } },
-  updated: { type: Date, default: Date.now() }
+  description: String,
+  pictures: [{ type: Buffer}],
+  reportType: {type: String, possibleValues: ['sos', 'eyewitness']},
+  creationTime: { type: Date, default: Date.now() }
 });
 
 const Sos = mongoose.model('Sos', sosSchema);
+
+//SosModel.Sos = Sos;
 
 sosSchema.set('toJSON', { virtuals: true });
 
