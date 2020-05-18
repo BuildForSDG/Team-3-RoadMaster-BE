@@ -29,17 +29,17 @@ app.use('/', indexRouter);
 // });
 
 // Create 404 Errors
-// app.use((req, res, next) => {
-//   const err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
-// // Handle all Errors
-// app.use((err, req, res) => {
-//   res.status(err.status).send({
-//     'Server Error': err.message
-//   });
-// });
+// Handle all Errors
+app.use((err, req, res) => {
+  res.status(err.status).send({
+    'Server Error': err.message
+  });
+});
 
 export default app;

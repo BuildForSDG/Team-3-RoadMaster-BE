@@ -1,15 +1,9 @@
 import { Router } from 'express';
 
-import SosController from '../controllers/sos.controller';
+import sosController from '../controllers/sosController';
 
 const router = new Router();
 
-router.post('/soss', SosController.insert);
-
-router.get('/soss', SosController.list);
-
-const sos = (req, res) => {
-  res.json('sos');
-};
+router.post('/', sosController.insert);
 
 export default router;
