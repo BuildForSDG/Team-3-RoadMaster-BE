@@ -1,7 +1,7 @@
 import http from 'http';
 import socketIO from 'socket.io';
 import app from './app';
-import sosModel from './models/sos.model';
+import userModel from './models/users.model';
 
 const PORT = process.env.PORT || 3001;
 
@@ -16,9 +16,9 @@ io.on('connection', (socket) => {
   // console.log(`${socket.username} just connected`);
 
   socket.on('sos', (data) => {
-    sosModel.list('userID');
+    const userInfo = userModel.findVictim(data.userID);
     io.sockets.emit('reply', { message: 'help is on the way' });
-    io.sockets.emit('response', { data });
+    io.sockets.emit('response', { location: data.location, userInfo });
   });
 });
 

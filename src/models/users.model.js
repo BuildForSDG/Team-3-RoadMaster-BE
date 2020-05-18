@@ -28,8 +28,8 @@ UserModel.createUser = (userData) => {
   return user.save();
 };
 
-UserModel.list = (perPage, page) => new Promise((resolve, reject) => {
-  User.find().limit(perPage).skip(perPage * page).exec((err, users) => {
+UserModel.findVictim = (perPage, page, userID) => new Promise((resolve, reject) => {
+  User.findById(userID).limit(perPage).skip(perPage * page).exec((err, users) => {
     if (err) {
       reject(err);
     } else {
