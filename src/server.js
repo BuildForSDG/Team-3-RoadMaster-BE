@@ -18,7 +18,7 @@ io.on('connection', (socket) => {
   socket.on('sos', (data) => {
     const userInfo = userModel.findVictim(data.userID);
     io.sockets.emit('reply', { message: 'help is on the way' });
-    io.sockets.emit('response', { location: data.location, userInfo });
+    io.sockets.emit('response', { data });
   });
 });
 
