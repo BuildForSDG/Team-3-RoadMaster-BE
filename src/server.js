@@ -16,7 +16,7 @@ io.on('connection', (socket) => {
   // console.log(`${socket.username} just connected`);
 
   socket.on('sos', (data) => {
-    const userInfo = userModel.findVictim(data.userID);
+    //const userInfo = userModel.findVictim(data.userID);
     io.sockets.emit('reply', { message: 'help is on the way' });
     io.sockets.emit('response', { data });
   });
