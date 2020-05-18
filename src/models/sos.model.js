@@ -37,7 +37,7 @@ SosModel.list = (perPage, page) => new Promise((resolve, reject) => {
 });
 
 SosModel.findById = (id) => {
-  //console.log(UserSchema.User)
+  // console.log(UserSchema.User)
   return UserSchema.User.findById(id).then((result) => {
     // result = result.toJSON();
     // delete result._id;
