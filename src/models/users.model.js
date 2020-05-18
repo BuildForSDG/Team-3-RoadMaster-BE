@@ -42,7 +42,7 @@ UserModel.list = (perPage, page) => new Promise((resolve, reject) => {
   });
 });
 
-UserModel.findById = (id) =>  new Promise((resolve, reject) => {
+UserModel.findById = (id) =>  new Promise((resolve) => {
   User.findById(id).then((result) => {
     resolve(result);
   });

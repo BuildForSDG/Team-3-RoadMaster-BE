@@ -36,7 +36,7 @@ SosModel.list = (perPage, page) => new Promise((resolve, reject) => {
   });
 });
 
-SosModel.findById = (id) =>  new Promise((resolve, reject) => {
+SosModel.findById = (id) =>  new Promise((resolve) => {
   UserSchema.findById(id).then((result) => {
     resolve(result);
   });

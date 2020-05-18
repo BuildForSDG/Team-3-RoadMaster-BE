@@ -38,7 +38,7 @@ EyeWitnessModel.list = (perPage, page) => new Promise((resolve, reject) => {
   });
 });
 
-EyeWitnessModel.findById = (id) =>  new Promise((resolve, reject) => {
+EyeWitnessModel.findById = (id) =>  new Promise((resolve) => {
   UserSchema.findById(id).then((result) => {
     resolve(result);
   });
