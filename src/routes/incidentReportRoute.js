@@ -1,4 +1,5 @@
 import { Router } from 'express';
+
 import IncidentReportController from '../controllers/incidentReportController';
 
 const router = new Router();

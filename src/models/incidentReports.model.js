@@ -15,11 +15,13 @@ const irSchema = new Schema({
   reportType: {type: String, possibleValues: ['sos', 'eyewitness']}
 });
 
-// const Ireport = mongoose.model('Incidentreports', irSchema);
-// irSchema.set('toJSON', { virtuals: true });
-// IncidentReportModel.createReport = (reportData) => {
-//   const report = new Ireport(reportData);
-//   return report.save();
-// };
+const Ireport = mongoose.model('Incidentreports', irSchema);
+
+irSchema.set('toJSON', { virtuals: true });
+
+IncidentReportModel.createReport = (reportData) => {
+  const report = new Ireport(reportData);
+  return report.save();
+};
 
 export default IncidentReportModel;

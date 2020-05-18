@@ -1,4 +1,5 @@
 import { Router } from 'express';
+
 import EyeWitnessController from '../controllers/eyewitness.controller';
 
 const router = new Router();
