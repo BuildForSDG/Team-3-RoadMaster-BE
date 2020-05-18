@@ -1,6 +1,4 @@
-/*
-this model is not currently being used 
-*/
+/* this model is not currently being used */
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
