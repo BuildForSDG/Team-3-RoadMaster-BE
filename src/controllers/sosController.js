@@ -2,6 +2,7 @@ import sosModel from '../models/sos.model';
 
 const sosController = {};
 
+// sos controller would only insert the location and userID to the database
 sosController.insert = (req, res) => {
   sosModel.createSos(req.body)
     .then((result) => {
