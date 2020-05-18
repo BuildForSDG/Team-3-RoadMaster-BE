@@ -15,10 +15,19 @@ io.on('connection', (socket) => {
   socket.username = 'Team 3';
   // console.log(`${socket.username} just connected`);
 
+  // SOS sent from victim
   socket.on('sos', (data) => {
     const userInfo = userModel.findVictim(data.userID);
     io.sockets.emit('reply', { message: 'help is on the way' });
+    // send the response team the medical records of the victim
     io.sockets.emit('response', { location: data.location, userInfo });
+  });
+
+  // Eyewitness report from observers
+  socket.on('report', (data) => {
+    io.sockets.emit('replied', { message: 'thanks for your report, it will be treated immediately' });
+    // send the response team the details of the location
+    io.sockets.emit('responded', { data });
   });
 });
 
