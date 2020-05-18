@@ -7,4 +7,3 @@ const router = new Router();
 router.post('/report', IncidentReportController.insert);
 
 export default router;
-
