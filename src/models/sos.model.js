@@ -36,13 +36,10 @@ SosModel.list = (perPage, page) => new Promise((resolve, reject) => {
   });
 });
 
-SosModel.findById = (id) => {
-  // console.log(UserSchema.User)
-  return UserSchema.User.findById(id).then((result) => {
-    // result = result.toJSON();
-    // delete result._id;
-    // delete result.__v;
-    return result;
+SosModel.findById = (id) =>  new Promise((resolve, reject) => {
+  UserSchema.findById(id).then((result) => {
+    resolve(result);
   });
-};
+});
+
 export default SosModel;
