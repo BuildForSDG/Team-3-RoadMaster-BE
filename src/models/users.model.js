@@ -28,14 +28,23 @@ UserModel.createUser = (userData) => {
   return user.save();
 };
 
-UserModel.findVictim = (perPage, page, userID) => new Promise((resolve, reject) => {
-  User.findById(userID).limit(perPage).skip(perPage * page).exec((err, users) => {
+UserModel.list = (perPage, page) => new Promise((resolve, reject) => {
+  User.find().limit(perPage).skip(perPage * page).exec((err, reports) => {
     if (err) {
       reject(err);
     } else {
-      resolve(users);
+      resolve(reports);
     }
   });
 });
+
+UserModel.findById = (id) => {
+  return User.findById(id).then((result) => {
+    result = result.toJSON();
+    delete result._id;
+    delete result.__v;
+    return result;
+  });
+};
 
 export default UserModel;

@@ -21,4 +21,10 @@ UsersController.list = (req, res) => {
     res.status(201).send(result);
   });
 };
+
+UsersController.getById = (req, res) => {
+  UsersModel.findById(req.params.userId).then((result) => {
+    res.status(200).send(result);
+  });
+};
 export default UsersController;
