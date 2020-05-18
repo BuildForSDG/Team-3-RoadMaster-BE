@@ -11,7 +11,6 @@ sosController.insert = (req, res) => {
 };
 
 sosController.getById = (req, res) => {
-  //console.log(req.body)
   sosModel.findById(req.params.userId).then((result) => {
     res.status(200).send(result);
   });
