@@ -13,7 +13,7 @@ const eyewitnessSchema = new Schema({
   userId: { id: { type: Schema.Types.ObjectId, ref: 'Users' } },
   description: String,
   pictures: [{ type: Buffer }],
-  reportType: {type: String, possibleValues: ['sos', 'eyewitness'] },
+  reportType: { type: String, possibleValues: ['sos', 'eyewitness'] },
   creationTime: { type: Date, default: Date.now() }
 });
 
@@ -39,9 +39,9 @@ EyeWitnessModel.list = (perPage, page) => new Promise((resolve, reject) => {
 EyeWitnessModel.findById = (id) => {
   // console.log(UserSchema.User)
   return UserSchema.User.findById(id).then((result) => {
-    result = result.toJSON();
-    delete result._id;
-    delete result.__v;
+    // result = result.toJSON();
+    // delete result._id;
+    // delete result.__v;
     return result;
   });
 };
