@@ -38,6 +38,8 @@ Content-Type: application/json
 
 {
   "name": "j doe",
+  "email": "jdoe@gmail.com",
+  "password": "294375847589",
   "age": 90,
   "bloodType": "o+",
   "genotype": "AA",
