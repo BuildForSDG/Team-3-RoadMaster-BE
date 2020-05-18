@@ -29,7 +29,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3001/sos/
+GET http://localhost:3001/sos/5ec2a5a109ea131e90a93d6b
 
 
 ###

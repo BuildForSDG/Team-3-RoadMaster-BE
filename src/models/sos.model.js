@@ -1,6 +1,6 @@
 import mongoose from '../database/mongoose.db';
 
-// import UserSchema from './users.model';
+import UserSchema from './users.model';
 
 const { Schema } = mongoose;
 
@@ -31,4 +31,13 @@ SosModel.list = (perPage, page) => new Promise((resolve, reject) => {
   });
 });
 
+SosModel.findById = (id) => {
+  console.log(UserSchema.User)
+  return UserSchema.User.findById(id).then((result) => {
+    result = result.toJSON();
+    delete result._id;
+    delete result.__v;
+    return result;
+  });
+};
 export default SosModel;

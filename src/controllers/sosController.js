@@ -10,4 +10,10 @@ sosController.insert = (req, res) => {
     });
 };
 
+sosController.getById = (req, res) => {
+  sosModel.findById(req.params.userId).then((result) => {
+    res.status(200).send(result);
+  });
+};
+
 export default sosController;

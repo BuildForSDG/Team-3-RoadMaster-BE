@@ -20,6 +20,7 @@ const userSchema = new Schema({
 });
 
 const User = mongoose.model('Users', userSchema);
+UserModel.User = User;
 
 userSchema.set('toJSON', { virtuals: true });
 

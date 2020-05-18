@@ -6,4 +6,6 @@ const router = new Router();
 
 router.post('/', sosController.insert);
 
+router.get('/:userId', sosController.getById);
+
 export default router;
