@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import encoder from '../utility/passwordEnc';
 // import database method for saving user
+import userModel from '../models/users.model';
 
 const signupController = (req, res) => {
   const {
@@ -18,7 +19,7 @@ const signupController = (req, res) => {
   const creationDate = new Date().toLocaleDateString;
   const dbData = {
     email,
-    hashedPassword,
+    password: hashedPassword,
     name,
     age,
     bloodType,
@@ -34,20 +35,26 @@ const signupController = (req, res) => {
   };
 
   // inside the database operation, store the jwt
-  const token = jwt.sign({
-    sub: 'the user id from the dB'
-  }, process.env.TOKENKEY, { expiresIn: 1440 });
-  // the body to send to front end
-  const responseBody = {
-    status: 'Success',
-    data: {
-      dbData,
-      message: 'Your account has been successfully created',
-      token,
-      userId: 'userID from the DB'
-    }
-  };
-  res.status(200).json(responseBody);
+  userModel.createUser(dbData)
+    .then((result) => {
+      // create a token to send back to the user
+      const token = jwt.sign({
+        sub: 'the user id from the dB'
+      }, process.env.TOKENKEY, { expiresIn: 1440 });
+      const { _id: userId } = result;
+      // the body to send to front end
+      const responseBody = {
+        status: 'Success',
+        data: {
+          message: 'Your account has been successfully created',
+          token,
+          userId
+        }
+      };
+      res.status(200).json(responseBody);
+    });
+
+
 };
 
 export default signupController;

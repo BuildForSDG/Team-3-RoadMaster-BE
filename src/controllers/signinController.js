@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import encoder from '../utility/passwordEnc';
 // import database method for saving user
+import userModel from '../models/users.model';
 
 const signinController = (req, res) => {
   const { email, password } = req.body;
@@ -11,23 +12,33 @@ const signinController = (req, res) => {
     });
     return;
   }
-  const passwordMatch = encoder.decode(password, 'dbPassword');
+  userModel.findOne(email).then((result) => {
+    const passwordMatch = encoder.decode(password, result.password);
 
-  // inside the database operation, store the jwt
-  const token = jwt.sign({
-    sub: 'the user id from the dB'
-  }, process.env.TOKENKEY, { expiresIn: 1440 });
-  // the body to send to front end
-  const responseBody = {
-    status: 'Success',
-    data: {
-      passwordMatch,
-      message: 'Your account has been successfully created',
-      token,
-      userId: 'userID from the DB'
+    if (passwordMatch) {
+      const { _id: userId } = result;
+      // inside the database operation, store the jwt
+      const token = jwt.sign({
+        sub: userId
+      }, process.env.TOKENKEY, { expiresIn: 1440 });
+      // the body to send to front end
+      const responseBody = {
+        status: 'Success',
+        data: {
+          message: 'Your are now signed in',
+          token,
+          userId
+        }
+      };
+
+      res.status(200).json(responseBody);
+    } else {
+      res.status(401).json({
+        status: 'error',
+        error: 'Password does not match'
+      });
     }
-  };
-  res.status(200).json(responseBody);
+  });
 };
 
 export default signinController;
