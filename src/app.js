@@ -25,11 +25,6 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 
-// // Test route for Jest testing
-// app.use('/test', (req, res) => {
-//   res.status(200).json('received');
-// });
-
 // Create 404 Errors
 app.use((req, res, next) => {
   const err = new Error('Not Found');
