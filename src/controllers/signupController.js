@@ -53,8 +53,6 @@ const signupController = (req, res) => {
       };
       res.status(200).json(responseBody);
     });
-
-
 };
 
 export default signupController;
