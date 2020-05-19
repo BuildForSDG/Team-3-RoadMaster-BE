@@ -16,6 +16,22 @@ const signupController = (req, res) => {
   }
   const hashedPassword = encoder.hash(password, 9);
   const creationDate = new Date().toLocaleDateString;
+  const dbData = {
+    email,
+    hashedPassword,
+    name,
+    age,
+    bloodType,
+    genotype,
+    nextofkinNum,
+    emergencyNum,
+    knownIllnesses,
+    state,
+    city,
+    lga,
+    residentialAdd,
+    creationDate
+  };
 
   // inside the database operation, store the jwt
   const token = jwt.sign({
@@ -30,7 +46,7 @@ const signupController = (req, res) => {
       userId: 'userID from the DB'
     }
   };
-
+  res.status(200).json(responseBody);
 };
 
 export default signupController;

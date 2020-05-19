@@ -3,6 +3,7 @@ import encoder from '../utility/passwordEnc';
 // import database method for saving user
 
 const signinController = (req, res) => {
+  const { email, password } = req.body;
   if (!email && !password) {
     res.status(400).json({
       status: 'error',
@@ -25,7 +26,7 @@ const signinController = (req, res) => {
       userId: 'userID from the DB'
     }
   };
-
+  res.status(200).json(responseBody);
 };
 
 export default signinController;
