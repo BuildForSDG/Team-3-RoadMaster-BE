@@ -1,7 +1,9 @@
 import express from 'express';
 import cors from 'cors';
+import { config } from 'dotenv';
 import indexRouter from './routes';
 
+config();
 const app = express();
 
 app.use((req, res, next) => {
