@@ -41,6 +41,7 @@ const signupController = (req, res) => {
   const responseBody = {
     status: 'Success',
     data: {
+      dbData,
       message: 'Your account has been successfully created',
       token,
       userId: 'userID from the DB'

@@ -21,6 +21,7 @@ const signinController = (req, res) => {
   const responseBody = {
     status: 'Success',
     data: {
+      passwordMatch,
       message: 'Your account has been successfully created',
       token,
       userId: 'userID from the DB'
