@@ -53,4 +53,11 @@ UserModel.findById = (id) => new Promise((resolve) => {
   });
 });
 
+// function to find a user by their email from the frontend which is stored in the token
+UserModel.findOne = (email) => new Promise((resolve) => {
+  User.findOne({ email }).then((result) => {
+    resolve(result);
+  });
+});
+
 export default UserModel;

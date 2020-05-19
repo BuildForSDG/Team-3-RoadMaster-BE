@@ -1,7 +1,9 @@
 import express from 'express';
 import cors from 'cors';
+import { config } from 'dotenv';
 import indexRouter from './routes';
 
+config();
 const app = express();
 
 app.use((req, res, next) => {
@@ -22,11 +24,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
-
-// // Test route for Jest testing
-// app.use('/test', (req, res) => {
-//   res.status(200).json('received');
-// });
 
 // Create 404 Errors
 app.use((req, res, next) => {

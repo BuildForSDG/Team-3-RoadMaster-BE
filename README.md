@@ -24,7 +24,14 @@ This is a simple JavaScript starter repo template for setting up your project. T
 Talk about what problem this solves, what SDG(s) and SGD targets it addresses and why these are imoirtant
 
 ## Usage
- How would someone use what you have built, include URLs to the deployed app, service e.t.c when you have it setup
+How would someone use what you have built, include URLs to the deployed app, service e.t.c when you have it setup
+How to use the presently functioning API
+<!-- -  clone the repo.
+-  run npm install to install all the dependencies.
+-  run npm start to start the server.
+-  use postman to test the following.
+-  POST localhost:3001/signup  body {name, password, email, age, bloodType, genotype, nextofkinNum, emergencyNum, knownIllnesses, state, city, lga, residentialAdd} This would return a token that can be added to bearer token authorization. This would register a user who can then be able to sign in with email and password.
+- POST localhost:3001/signin body { email, password} This would return a token for authorization on the headers of any incoming request. -->
 
 
 ## Setup
