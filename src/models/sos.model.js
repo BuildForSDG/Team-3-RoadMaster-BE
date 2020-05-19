@@ -1,7 +1,5 @@
 import mongoose from '../database/mongoose.db';
 
-import UserSchema from './users.model';
-
 const { Schema } = mongoose;
 
 const SosModel = {};
@@ -26,6 +24,7 @@ SosModel.createSos = (sosDetails) => {
   return sos.save();
 };
 
+// Not key to app functionality yet
 SosModel.list = (perPage, page) => new Promise((resolve, reject) => {
   Sos.find().limit(perPage).skip(perPage * page).exec((err, sos) => {
     if (err) {
@@ -33,12 +32,6 @@ SosModel.list = (perPage, page) => new Promise((resolve, reject) => {
     } else {
       resolve(sos);
     }
-  });
-});
-
-SosModel.findById = (id) => new Promise((resolve) => {
-  UserSchema.findById(id).then((result) => {
-    resolve(result);
   });
 });
 

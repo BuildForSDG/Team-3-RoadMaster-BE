@@ -1,7 +1,5 @@
 import mongoose from '../database/mongoose.db';
 
-import UserSchema from './users.model';
-
 const { Schema } = mongoose;
 
 const EyeWitnessModel = {};
@@ -26,6 +24,7 @@ EyeWitnessModel.createEyewReport = (reportData) => {
   return report.save();
 };
 
+// Not key to functionality of the app
 EyeWitnessModel.list = (perPage, page) => new Promise((resolve, reject) => {
   Eyewitness.find().limit(perPage).skip(perPage * page).exec((err, reports) => {
     if (err) {
@@ -33,12 +32,6 @@ EyeWitnessModel.list = (perPage, page) => new Promise((resolve, reject) => {
     } else {
       resolve(reports);
     }
-  });
-});
-
-EyeWitnessModel.findById = (id) => new Promise((resolve) => {
-  UserSchema.findById(id).then((result) => {
-    resolve(result);
   });
 });
 

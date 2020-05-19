@@ -19,19 +19,23 @@ const userSchema = new Schema({
   lga: String,
   residentialAdd: String,
   creationdate: { type: Date, default: Date.now() }
-
 });
 
 const User = mongoose.model('Users', userSchema);
+
+// Object container for funtions to export
 UserModel.User = User;
 
 userSchema.set('toJSON', { virtuals: true });
 
+// function to create a new user during signup
 UserModel.createUser = (userData) => {
   const user = new User(userData);
   return user.save();
 };
 
+// Probably only useful for admin purposes to know the amount of users we have
+// this is not core to the application essentials
 UserModel.list = (perPage, page) => new Promise((resolve, reject) => {
   User.find().limit(perPage).skip(perPage * page).exec((err, reports) => {
     if (err) {
@@ -42,6 +46,7 @@ UserModel.list = (perPage, page) => new Promise((resolve, reject) => {
   });
 });
 
+// function to find a user by their userID from the frontend which is stored in the token
 UserModel.findById = (id) => new Promise((resolve) => {
   User.findById(id).then((result) => {
     resolve(result);

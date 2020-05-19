@@ -10,7 +10,8 @@ const irSchema = new Schema({
   userId: { id: { type: Schema.Types.ObjectId, ref: 'Users' } },
   description: String,
   pictures: [{ type: Buffer }],
-  reportType: { type: String, possibleValues: ['sos', 'eyewitness'] }
+  reportType: { type: String, possibleValues: ['sos', 'eyewitness'] },
+  creationTime: { type: Date, default: Date.now() }
 });
 
 const Ireport = mongoose.model('Incidentreports', irSchema);
