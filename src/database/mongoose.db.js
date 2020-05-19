@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 
 const options = {
-  autoIndex: false,
+  // autoIndex: false,
   // reconnectTries: 30,
   // reconnectInterval: 500,
-  poolSize: 10,
-  bufferMaxEntries: 0,
+  // poolSize: 10,
+  // bufferMaxEntries: 0,
   useNewUrlParser: true,
   useUnifiedTopology: true
 };

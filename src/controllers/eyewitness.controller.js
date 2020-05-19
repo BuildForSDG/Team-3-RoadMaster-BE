@@ -27,4 +27,10 @@ EyeWitnessController.list = (req, res) => {
     });
 };
 
+EyeWitnessController.getById = (req, res) => {
+  EyeWitnessModel.findById(req.params.userId).then((result) => {
+    res.status(200).send(result);
+  });
+};
+
 export default EyeWitnessController;

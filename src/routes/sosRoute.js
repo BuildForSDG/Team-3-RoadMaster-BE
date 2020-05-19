@@ -1,5 +1,13 @@
-const sos = (req, res) => {
-  res.json('sos');
-};
+import { Router } from 'express';
 
-export default sos;
+import sosController from '../controllers/sosController';
+
+const router = new Router();
+
+router.post('/', sosController.insert);
+
+router.get('/:userId', sosController.getById);
+
+router.get('/', sosController.list);
+
+export default router;

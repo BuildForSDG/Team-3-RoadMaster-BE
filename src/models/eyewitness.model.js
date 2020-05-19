@@ -4,10 +4,15 @@ const { Schema } = mongoose;
 
 const EyeWitnessModel = {};
 
+/* reportCount still needs handling */
+
 const eyewitnessSchema = new Schema({
   location: String,
+  userId: { id: { type: Schema.Types.ObjectId, ref: 'Users' } },
   description: String,
-  reportCount: Number
+  pictures: [{ type: Buffer }],
+  reportType: { type: String, possibleValues: ['sos', 'eyewitness'] },
+  creationTime: { type: Date, default: Date.now() }
 });
 
 const Eyewitness = mongoose.model('Eyewitnessreports', eyewitnessSchema);
@@ -19,6 +24,7 @@ EyeWitnessModel.createEyewReport = (reportData) => {
   return report.save();
 };
 
+// Not key to functionality of the app
 EyeWitnessModel.list = (perPage, page) => new Promise((resolve, reject) => {
   Eyewitness.find().limit(perPage).skip(perPage * page).exec((err, reports) => {
     if (err) {

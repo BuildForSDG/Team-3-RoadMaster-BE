@@ -1,8 +1,9 @@
 import http from 'http';
 import socketIO from 'socket.io';
 import app from './app';
+// import userModel from './models/users.model';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const server = http.createServer(app);
 
@@ -16,6 +17,7 @@ io.on('connection', (socket) => {
 
   // SOS sent from victim
   socket.on('sos', (data) => {
+    // const userInfo = userModel.findVictim(data.userID);
     io.sockets.emit('reply', { message: 'help is on the way' });
     // send the response team the medical records of the victim
     io.sockets.emit('response', { data });
@@ -34,7 +36,7 @@ server.listen(PORT);
 
 // Uncomment to log the server processes
 // server.on('listening', () => {
-//   console.log(`server running on localhost:${PORT}`);
+//   //console.log(`server running on localhost:${PORT}`);
 // });
 
 export default server;

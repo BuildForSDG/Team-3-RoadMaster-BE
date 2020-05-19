@@ -1,31 +1,43 @@
 
-POST http://localhost:3001/report
+###
+GET http://localhost:3001/report/eyeWitness
+
+###
+GET http://localhost:3001/sos/
+
+
+###
+POST http://localhost:3001/alluser/user
 Content-Type: application/json
 
 {
-    "location": "sango",
-    "description": "two keke napep jam each other",
-    "reportCount": 1
+  "name": "jane doe",
+  "email": "jdoe@gmail.com",
+  "password": "294375847589",
+  "age": 90,
+  "bloodType": "o+",
+  "genotype": "AA",
+  "nextofkinNum": "1938384849",
+  "emergencyNum": "848494040",
+  "knownIllnesses": ["diabetes", "hBP"],
+  "state": "ibadan",
+  "city": "city 1",
+  "lga": "kosofe",
+  "residentialAdd": "some address"
 }
-###
-GET http://localhost:3001/reports
 
 ###
-POST http://localhost:3001/eyewitnessReport
+GET http://localhost:3001/alluser/users
+
+###
+GET http://localhost:3001/alluser/5ec2ff715035ac2144fa6978
+
+###
+POST http://localhost:3001/incident/report
 Content-Type: application/json
 
 {
-    "location": "sabo",
-    "description": "two keke napep jam each other",
-    "reportCount": 1
-}
-
-###
-POST http://localhost:3001/sos
-Content-Type: application/json
-
-{
-    "location": "sabo",
-    "description": "two keke napep jam each other",
-    "reportCount": 1
+  "location": "location1",
+  "description": "two keke napep jam each other",
+  "reportType": "eyewitness"
 }
