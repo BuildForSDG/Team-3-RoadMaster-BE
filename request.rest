@@ -65,7 +65,24 @@ Content-Type: application/json
 POST http://localhost:3001/signin/
 Content-Type: application/json
 
-{ "email": "sekinat@gmail.com", 
-  "password": "sekinat"
+{ "email": "jkjdkkjd@gmail.com", 
+  "password": "jdjjdw"
 }
- 
+
+###
+POST http://localhost:3001/responder/
+Content-Type: application/json
+
+{
+  "nameOfUnit": "unit name",
+  "designation": "firefighter",
+  "state": "Abuja",
+  "city": "FCT",
+  "location": "Gwarimpa",
+  "emegencyNumber": "88748488484",
+  "email": "firedept@gmail.com",
+  "password": "jfjfjfj",
+  "passwordcheck": "jfjfjfj",
+  "lat": "89",
+  "lon": "-17"
+}
