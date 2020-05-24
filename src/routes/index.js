@@ -11,7 +11,7 @@ import incidentreportRoute from './incidentReportRoute';
 const router = Router();
 
 router.use('/signup', signupRoute);
-router.use('/signin', jwtCheck, signinRoute);
+router.use('/signin', signinRoute);
 router.use('/sos', sosRoute);
 router.use('/report', eyeWitnessRoute);
 router.use('/alluser', userRoute);
