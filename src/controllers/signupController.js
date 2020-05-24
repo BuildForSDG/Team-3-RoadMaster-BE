@@ -43,23 +43,23 @@ const signupController = (req, res, next) => {
     
       // inside the database operation, store the jwt
       userModel.createUser(dbData)
-        .then((result) => {
-          // create a token to send back to the user
-          const token = jwt.sign({
-            sub: 'the user id from the dB'
-          }, process.env.TOKENKEY, { expiresIn: 1440 });
-          const { _id: userId } = result;
-          // the body to send to front end
-          const responseBody = {
-            status: 'Success',
-            data: {
-              message: 'Your account has been successfully created',
-              token,
-              userId
-            }
-          };
-          res.status(200).json(responseBody);
-        });
+      .then((result1) => {
+        // create a token to send back to the user
+        const token = jwt.sign({
+          sub: 'the user id from the dB'
+        }, process.env.TOKENKEY, { expiresIn: 1440 });
+        const { _id: userId } = result1;
+        // the body to send to front end
+        const responseBody = {
+          status: 'Success',
+          data: {
+            message: 'Your account has been successfully created',
+            token,
+            userId
+          }
+        };
+        res.status(200).json(responseBody);
+      });
     }
   })
 };

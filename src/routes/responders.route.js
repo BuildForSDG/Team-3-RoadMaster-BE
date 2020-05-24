@@ -6,5 +6,4 @@ const router = new Router();
 
 router.post('/', RespondersController.insert);
 
-
 export default router;
