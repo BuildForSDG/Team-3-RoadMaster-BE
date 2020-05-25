@@ -7,7 +7,7 @@ const IncidentReportModel = {};
 
 const irSchema = new Schema({
   location: String,
-  userId: { id: { type: Schema.Types.ObjectId, ref: 'Users', required: true } },
+  userId: { id: { type: Schema.Types.ObjectId, ref: 'Users' } },
   description: String,
   pictures: [{ type: Buffer }],
   reportType: { type: String, possibleValues: ['sos', 'eyewitness'] },
