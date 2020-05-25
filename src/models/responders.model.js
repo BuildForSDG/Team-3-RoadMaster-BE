@@ -5,16 +5,15 @@ const { Schema } = mongoose;
 const RespondersModel = {};
 
 const responderSchema = new Schema({
-  nameOfUnit: String,
+  nameOfUnit: { type: String, unique: true, required: true },
   designation: String,
   state: String,
   city: String,
-  location: String,
-  emegencyNumber: String,
-  email: String,
-  password: String,
-  lat: String,
-  lon: String
+  emegencyNumber: { type: String, required: true },
+  email: { type: String, unique: true, required: true },
+  password: { type: String, required: true },
+  lat: { type: String, required: true },
+  lon: { type: String, required: true }
 });
 
 const Responder = mongoose.model('Responders', responderSchema);

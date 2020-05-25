@@ -12,9 +12,11 @@ const signinController = (req, res) => {
     });
     return;
   }
-  userModel.findOne(email).then((result) => {
+  userModel.findOne(email).then((err, result) => {
+    if (err) {
+      res.status(401).json(err.message);
+    }
     const passwordMatch = encoder.decode(password, result.password);
-
     if (passwordMatch) {
       const { _id: userId } = result;
       // inside the database operation, store the jwt
@@ -30,7 +32,6 @@ const signinController = (req, res) => {
           userId
         }
       };
-
       res.status(200).json(responseBody);
     } else {
       res.status(401).json({

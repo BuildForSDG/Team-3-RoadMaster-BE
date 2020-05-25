@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import RespondersController from '../controllers/responders.controller';
+import respondersController from '../controllers/responders.controller';
 
 const router = new Router();
 
-router.post('/', RespondersController.insert);
+router.post('/', respondersController);
 
 export default router;

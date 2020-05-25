@@ -4,10 +4,6 @@ import sosController from '../controllers/sosController';
 
 const router = new Router();
 
-router.post('/', sosController.insert);
-
-router.get('/:userId', sosController.getById);
-
-router.get('/', sosController.list);
+router.post('/', sosController);
 
 export default router;
