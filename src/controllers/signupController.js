@@ -52,11 +52,11 @@ const signupController = (req, res) => {
       };
       // inside the database operation, store the jwt
       userModel.createUser(dbData).then((result1) => {
+        const { _id: userId } = result1;
         // create a token to send back to the user
         const token = jwt.sign({
-          sub: 'the user id from db'
+          sub: userId
         }, process.env.TOKENKEY, { expiresIn: 1440 });
-        const { _id: userId } = result1;
         // response body to send to frontend
         const responseBody = {
           status: 'Success',
@@ -70,7 +70,7 @@ const signupController = (req, res) => {
       });
     }
   });
-}
+};
 
 // const signupController = (req, res, next) => {
 //  // checks if user already exists
@@ -83,7 +83,7 @@ const signupController = (req, res) => {
 //         email, name, password, age, bloodType, genotype, nextofkinNum, emergencyNum,
 //         knownIllnesses, state, city, lga, residentialAdd
 //       } = req.body;
-    
+
 //       if (!email && !password) {
 //         res.status(400).json({
 //           status: 'error',
@@ -109,7 +109,7 @@ const signupController = (req, res) => {
 //         residentialAdd,
 //         creationDate
 //       };
-    
+
 //       // inside the database operation, store the jwt
 //       userModel.createUser(dbData)
 //       .then((result1) => {

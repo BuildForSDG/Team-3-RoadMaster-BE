@@ -13,7 +13,6 @@ const responderSchema = new Schema({
   emegencyNumber: String,
   email: String,
   password: String,
-  passwordcheck: String,
   lat: String,
   lon: String
 });
