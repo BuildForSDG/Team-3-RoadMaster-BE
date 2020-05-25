@@ -107,8 +107,7 @@ const signupController = (req, res) => {
 //         lga,
 //         residentialAdd,
 //         creationDate
-//       };
-    
+//       };   
 //       // inside the database operation, store the jwt
 //       userModel.createUser(dbData)
 //       .then((result1) => {
