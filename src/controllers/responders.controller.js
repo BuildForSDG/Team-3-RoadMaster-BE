@@ -5,10 +5,9 @@ import RespondersModel from '../models/responders.model';
 const RespondersController = {};
 
 RespondersController.insert = (req, res) => {
-
-  if (req.body.password!==req.body.passwordcheck) {
+  if (req.body.password !== req.body.passwordcheck) {
     console.log('passwords dont match');
-    res.send()
+    res.send();
   } else {
     const saltp = crypto.randomBytes(16).toString('base64');
     const hashp = crypto.createHmac('sha512', saltp).update(req.body.password).digest('base64');
@@ -17,13 +16,9 @@ RespondersController.insert = (req, res) => {
     const hashc = crypto.createHmac('sha512', saltc).update(req.body.password).digest('base64');
     req.body.passwordcheck = `${saltc}$${hashc}`;
     RespondersModel.createResponder(req.body).then((result) => {
-    res.status(201).send({ id: result.id });
-
+      res.status(201).send({ id: result.id });
     });
   }
-
 };
-
-
 
 export default RespondersController;

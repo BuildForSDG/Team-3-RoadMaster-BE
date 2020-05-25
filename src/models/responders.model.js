@@ -25,7 +25,7 @@ RespondersModel.createResponder = (responderData) => {
   return responder.save();
 };
 
-RespondersModel.getRespondersByLocation =  (location) => new Promise((resolve) => {
+RespondersModel.getRespondersByLocation = (location) => new Promise((resolve) => {
   Responder.findOne({ location }).then((result) => {
     resolve(result);
   });

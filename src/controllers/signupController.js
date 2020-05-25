@@ -3,10 +3,12 @@ import encoder from '../utility/passwordEnc';
 // import database method for saving user
 import userModel from '../models/users.model';
 
+// doing this because of codacy
 const signupController = (req, res) => {
+  // checks if user already exists
   userModel.findOne(req.body.email).then((result) => {
     if (result) {
-      res.status(400).send('user with this email already exists')
+      res.status(400).send('user with this email already exists');
     } else {
       const {
         email,
@@ -25,8 +27,8 @@ const signupController = (req, res) => {
       } = req.body;
       if (!email && !password) {
         res.status(400).json({
-          status: "error",
-          error: "Email and password field cannot be empty"
+          status: 'error',
+          error: 'Email and password field cannot be empty'
         });
         return;
       }
@@ -48,11 +50,14 @@ const signupController = (req, res) => {
         residentialAdd,
         creationDate
       };
+      // inside the database operation, store the jwt
       userModel.createUser(dbData).then((result1) => {
+        // create a token to send back to the user
         const token = jwt.sign({
           sub: 'the user id from db'
         }, process.env.TOKENKEY, { expiresIn: 1440 });
         const { _id: userId } = result1;
+        // response body to send to frontend
         const responseBody = {
           status: 'Success',
           data: {
@@ -64,7 +69,7 @@ const signupController = (req, res) => {
         res.status(200).json(responseBody);
       });
     }
-  })
+  });
 }
 
 // const signupController = (req, res, next) => {
