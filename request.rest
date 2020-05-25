@@ -47,9 +47,9 @@ POST http://localhost:3001/signup/
 Content-Type: application/json
 
 {
-  "name": "sekinat",
-  "password": "sekinat",
-  "email": "sekinat@gmail.com",
+  "name": "john",
+  "password": "doe",
+  "email": "jdoe@gmail.com",
   "age": 109,
   "bloodType": "o+",
   "genotype": "AA",
