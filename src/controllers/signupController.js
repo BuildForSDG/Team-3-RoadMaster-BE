@@ -70,7 +70,7 @@ const signupController = (req, res) => {
       });
     }
   });
-}
+};
 
 // const signupController = (req, res, next) => {
 //  // checks if user already exists
@@ -83,7 +83,6 @@ const signupController = (req, res) => {
 //         email, name, password, age, bloodType, genotype, nextofkinNum, emergencyNum,
 //         knownIllnesses, state, city, lga, residentialAdd
 //       } = req.body;
-    
 //       if (!email && !password) {
 //         res.status(400).json({
 //           status: 'error',
