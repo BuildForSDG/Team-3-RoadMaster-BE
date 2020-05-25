@@ -14,10 +14,7 @@ const respondersController = (req, res) => {
   req.body.password = hashedPassword;
   const creationDate = new Date().toLocaleDateString;
   req.body.creationDate = creationDate;
-  RespondersModel.createResponder(req.body).then((err, result) => {
-    if (err) {
-      res.status(401).json(err.message);
-    }
+  RespondersModel.createResponder(req.body).then((result) => {
     const { _id: userId } = result;
     // create a token to send back to the user
     const token = jwt.sign({
@@ -33,7 +30,10 @@ const respondersController = (req, res) => {
       }
     };
     res.status(201).json(responseBody);
-  });
+  })
+    .catch((err) => {
+      res.status(401).json(err.message);
+    });
 };
 
 export default respondersController;

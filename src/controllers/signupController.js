@@ -16,10 +16,7 @@ const signupController = (req, res) => {
   req.body.password = hashedPassword;
   req.body.creationDate = creationDate;
   // inside the database operation, store the jwt
-  userModel.createUser(req.body).then((err, result) => {
-    if (err) {
-      res.status(401).json(err.message);
-    }
+  userModel.createUser(req.body).then((result) => {
     const { _id: userId } = result;
     // create a token to send back to the user
     const token = jwt.sign({
@@ -34,8 +31,11 @@ const signupController = (req, res) => {
         userId
       }
     };
-    res.status(201).json(responseBody);
-  });
+    return res.status(201).json(responseBody);
+  })
+    .catch((err) => {
+      res.status(401).json(err.message);
+    });
 };
 
 export default signupController;
