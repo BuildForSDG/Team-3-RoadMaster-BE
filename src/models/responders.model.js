@@ -23,8 +23,26 @@ RespondersModel.createResponder = (responderData) => {
   return responder.save();
 };
 
+RespondersModel.getAll = () => new Promise((resolve) => {
+  Responder.find().then((result) => {
+    resolve(result);
+  });
+});
+
 RespondersModel.getRespondersByLocation = (location) => new Promise((resolve) => {
   Responder.findOne({ location }).then((result) => {
+    resolve(result);
+  });
+});
+
+RespondersModel.getRespondersByEmail = (email) => new Promise((resolve) => {
+  Responder.findOne({ email }).then((result) => {
+    resolve(result);
+  });
+});
+
+RespondersModel.getRespondersById = (id) => new Promise((resolve) => {
+  Responder.findById(id).then((result) => {
     resolve(result);
   });
 });
