@@ -12,8 +12,8 @@ const responderSchema = new Schema({
   emegencyNumber: { type: String, required: true },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
-  lat: { type: String, required: true },
-  lon: { type: String, required: true }
+  lat: { type: Number, required: true },
+  lon: { type: Number, required: true }
 });
 
 const Responder = mongoose.model('Responders', responderSchema);

@@ -74,15 +74,13 @@ POST http://localhost:3001/responder/
 Content-Type: application/json
 
 {
-  "nameOfUnit": "unit name",
+  "nameOfUnit": "lagos unit 6",
   "designation": "firefighter",
-  "state": "Abuja",
-  "city": "FCT",
-  "location": "Gwarimpa",
+  "state": "lagos",
+  "city": "lagos",
   "emegencyNumber": "88748488484",
-  "email": "firedept@gmail.com",
+  "email": "lag6@gmail.com",
   "password": "jfjfjfj",
-  "passwordcheck": "jfjfjfj",
-  "lat": "89",
-  "lon": "-17"
+  "lat": 6.4727703,
+  "lon": 3.6309526
 }
