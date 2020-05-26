@@ -18,7 +18,9 @@ io.on('connection', (socket) => {
 
   // set the socket name to the name of the responder who logged in
   socket.on('responderSignin', (data) => {
-    responderModel.getRespondersByEmail(data.email).then((responder) => socket.username = responder.nameOfUnit );
+    responderModel.getRespondersByEmail(data.email).then((responder) => {
+      socket.username = responder.nameOfUnit;
+    });
   });
 
   // set the socket name to the name of the user who logged in
@@ -30,13 +32,13 @@ io.on('connection', (socket) => {
 
   // SOS sent from victim
   socket.on('sos', (data) => {
-    userModel.findById(data.userID).then(user => {
+    userModel.findById(data.userID).then((user) => {
       // find the nearest fire station
-      responderModel.getAll(responders => {
+      responderModel.getAll((responders) => {
         const closestStation = findClosestStation(data.accidentLocation, responders);
         // send the response team the medical records of the victim
-        io.sockets.emit('response', { user });
-      })
+        io.sockets.emit('response', { user, closestStation });
+      });
     });
   });
 

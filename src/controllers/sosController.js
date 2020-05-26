@@ -1,6 +1,7 @@
 import incidentModel from '../models/incidentReports.model';
 
 // sos controller would only insert the location and userID to the database
+// the remaining work is done on socket.io
 const sosController = (req, res) => {
   incidentModel.createReport(req.body)
     .then(() => {
