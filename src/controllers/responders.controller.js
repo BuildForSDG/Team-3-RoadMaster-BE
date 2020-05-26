@@ -2,7 +2,9 @@ import jwt from 'jsonwebtoken';
 import encoder from '../utility/passwordEnc';
 import RespondersModel from '../models/responders.model';
 
-const respondersController = (req, res) => {
+const respondersController = {}
+
+respondersController.register = (req, res) => {
   if (!req.body.email && !req.body.password) {
     res.status(400).json({
       status: 'error',
@@ -35,5 +37,12 @@ const respondersController = (req, res) => {
       res.status(401).json(err.message);
     });
 };
+
+respondersController.fetchAll = (req, res) => {
+  RespondersModel.getAll()
+    .then((result) => {
+      res.status(200).send(result);
+    });
+}
 
 export default respondersController;

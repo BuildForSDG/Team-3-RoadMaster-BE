@@ -84,3 +84,6 @@ Content-Type: application/json
   "lat": 6.4727703,
   "lon": 3.6309526
 }
+
+###
+GET http://localhost:3001/responder/all
