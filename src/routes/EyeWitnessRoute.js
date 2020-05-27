@@ -10,6 +10,6 @@ router.post('/eyeWitness', EyeWitnessController.insert);
 // Route to get eye witness reports
 // consider making this get report a general route to list all reports
 // including reports from victims and eyewitness
-//router.get('/eyeWitness', EyeWitnessController.list);
+// router.get('/eyeWitness', EyeWitnessController.list);
 
 export default router;

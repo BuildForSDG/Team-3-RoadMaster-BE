@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import encoder from '../utility/passwordEnc';
 import RespondersModel from '../models/responders.model';
 
-const respondersController = {}
+const respondersController = {};
 
 respondersController.register = (req, res) => {
   if (!req.body.email && !req.body.password) {
@@ -43,6 +43,6 @@ respondersController.fetchAll = (req, res) => {
     .then((result) => {
       res.status(200).send(result);
     });
-}
+};
 
 export default respondersController;
