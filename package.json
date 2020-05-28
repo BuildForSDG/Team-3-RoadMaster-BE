@@ -10,7 +10,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "directories": {
-    "test": "__tests__"
+    "test": "tests"
   },
   "scripts": {
     "test": "jest",
