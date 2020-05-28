@@ -32,11 +32,15 @@ io.on('connection', (socket) => {
 
   // SOS sent from victim
   socket.on('sos', (data) => {
+    // data = {userID: 'id', accidentLocation: {lat: '', lon: ''}}
     userModel.findById(data.userID).then((user) => {
       // find the nearest fire station
       responderModel.getAll((responders) => {
+        // data.accidentLocation should be in format = { lat: 6.3445645, lon: 3.4533255 }
         const closestStation = findClosestStation(data.accidentLocation, responders);
         // send the response team the medical records of the victim
+        // the event name should be the name of the station so that socket.IO can target
+        // that station's javascript socket connection
         io.sockets.emit('response', { user, closestStation });
       });
     });

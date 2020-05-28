@@ -41,7 +41,7 @@ respondersController.register = (req, res) => {
 respondersController.fetchAll = (req, res) => {
   RespondersModel.getAll()
     .then((result) => {
-      res.status(200).send(result);
+      res.status(200).send({ result });
     });
 };
 
