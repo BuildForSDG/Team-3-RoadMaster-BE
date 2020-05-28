@@ -41,3 +41,49 @@ Content-Type: application/json
   "description": "two keke napep jam each other",
   "reportType": "eyewitness"
 }
+
+###
+POST http://localhost:3001/signup/
+Content-Type: application/json
+
+{
+  "name": "john",
+  "password": "doe",
+  "email": "jdoe@gmail.com",
+  "age": 109,
+  "bloodType": "o+",
+  "genotype": "AA",
+  "nextofkinNum": "98449595959",
+  "emergencyNum": "3993388484949",
+  "knownIllnesses": ["ds12222", "ds222222"],
+  "state": "lagos",
+  "lga": "somelga",
+  "residentialAdd": "some addd"
+}
+
+###
+POST http://localhost:3001/signin/
+Content-Type: application/json
+
+{ "email": "sekinat@gmail.com", 
+  "password": "sekinat"
+}
+
+###
+POST http://localhost:3001/responder/
+Content-Type: application/json
+
+{
+  "nameOfUnit": "lagos unit 6",
+  "designation": "firefighter",
+  "state": "lagos",
+  "city": "lagos",
+  "emegencyNumber": "88748488484",
+  "email": "lag6@gmail.com",
+  "password": "jfjfjfj",
+  "lat": 6.4727703,
+  "lon": 3.6309526
+}
+
+###
+GET http://localhost:3001/responder/all

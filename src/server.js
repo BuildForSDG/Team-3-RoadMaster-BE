@@ -1,10 +1,11 @@
 import http from 'http';
 import socketIO from 'socket.io';
 import app from './app';
-// import userModel from './models/users.model';
+import userModel from './models/users.model';
+import responderModel from './models/responders.model';
+import findClosestStation from './utility/findClosestStation';
 
 const PORT = process.env.PORT || 3001;
-
 const server = http.createServer(app);
 
 // Instantiation of the socket IO on the server
@@ -12,15 +13,33 @@ const io = socketIO(server);
 
 // Function to run when a client connects to the server whereever it is hosted
 io.on('connection', (socket) => {
-  socket.username = 'Team 3';
+  socket.username = '';
   // console.log(`${socket.username} just connected`);
+
+  // set the socket name to the name of the responder who logged in
+  socket.on('responderSignin', (data) => {
+    responderModel.getRespondersByEmail(data.email).then((responder) => {
+      socket.username = responder.nameOfUnit;
+    });
+  });
+
+  // set the socket name to the name of the user who logged in
+  socket.on('userSignin', (data) => {
+    socket.username = data.name;
+    io.sockets.emit('usernameChange', { username: socket.username });
+    // userModel.findOne(data.email).then((user) => socket.username = user.name );
+  });
 
   // SOS sent from victim
   socket.on('sos', (data) => {
-    // const userInfo = userModel.findVictim(data.userID);
-    io.sockets.emit('reply', { message: 'help is on the way' });
-    // send the response team the medical records of the victim
-    io.sockets.emit('response', { data });
+    userModel.findById(data.userID).then((user) => {
+      // find the nearest fire station
+      responderModel.getAll((responders) => {
+        const closestStation = findClosestStation(data.accidentLocation, responders);
+        // send the response team the medical records of the victim
+        io.sockets.emit('response', { user, closestStation });
+      });
+    });
   });
 
   // Eyewitness report from observers
@@ -32,8 +51,6 @@ io.on('connection', (socket) => {
 });
 
 server.listen(PORT);
-
-
 // Uncomment to log the server processes
 // server.on('listening', () => {
 //   //console.log(`server running on localhost:${PORT}`);

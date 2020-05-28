@@ -1,9 +1,10 @@
 import jwt from 'jsonwebtoken';
 import encoder from '../utility/passwordEnc';
-// import database method for saving user
-import userModel from '../models/users.model';
+import RespondersModel from '../models/responders.model';
 
-const signupController = (req, res) => {
+const respondersController = {};
+
+respondersController.register = (req, res) => {
   if (!req.body.email && !req.body.password) {
     res.status(400).json({
       status: 'error',
@@ -12,11 +13,10 @@ const signupController = (req, res) => {
     return;
   }
   const hashedPassword = encoder.hash(req.body.password, 9);
-  const creationDate = new Date().toLocaleDateString;
   req.body.password = hashedPassword;
+  const creationDate = new Date().toLocaleDateString;
   req.body.creationDate = creationDate;
-  // inside the database operation, store the jwt
-  userModel.createUser(req.body).then((result) => {
+  RespondersModel.createResponder(req.body).then((result) => {
     const { _id: userId } = result;
     // create a token to send back to the user
     const token = jwt.sign({
@@ -31,11 +31,18 @@ const signupController = (req, res) => {
         userId
       }
     };
-    return res.status(201).json(responseBody);
+    res.status(201).json(responseBody);
   })
     .catch((err) => {
       res.status(401).json(err.message);
     });
 };
 
-export default signupController;
+respondersController.fetchAll = (req, res) => {
+  RespondersModel.getAll()
+    .then((result) => {
+      res.status(200).send(result);
+    });
+};
+
+export default respondersController;

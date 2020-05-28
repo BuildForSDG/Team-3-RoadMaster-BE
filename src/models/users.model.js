@@ -6,8 +6,8 @@ const UserModel = {};
 
 const userSchema = new Schema({
   name: String,
-  email: String,
-  password: String,
+  email: { type: String, unique: true, required: true },
+  password: { type: String, required: true },
   age: Number,
   bloodType: String,
   genotype: String,
@@ -37,11 +37,11 @@ UserModel.createUser = (userData) => {
 // Probably only useful for admin purposes to know the amount of users we have
 // this is not core to the application essentials
 UserModel.list = (perPage, page) => new Promise((resolve, reject) => {
-  User.find().limit(perPage).skip(perPage * page).exec((err, reports) => {
+  User.find().limit(perPage).skip(perPage * page).exec((err, users) => {
     if (err) {
       reject(err);
     } else {
-      resolve(reports);
+      resolve(users);
     }
   });
 });
