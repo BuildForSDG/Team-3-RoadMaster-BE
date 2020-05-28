@@ -19,7 +19,7 @@ pids
 lib-cov
 build
 src/logic
-_tests_
+__tests__/
 
 # Coverage directory used by tools like istanbul
 coverage
