@@ -19,7 +19,8 @@ pids
 lib-cov
 build
 src/logic
-__tests__/
+tests
+tests/app.test.js
 
 # Coverage directory used by tools like istanbul
 coverage
