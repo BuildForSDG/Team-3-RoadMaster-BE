@@ -9,7 +9,7 @@ const responderSchema = new Schema({
   designation: String,
   state: String,
   city: String,
-  emegencyNumber: { type: String, required: true },
+  emergencyNumber: { type: String, required: true },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
   lat: { type: Number, required: true },
