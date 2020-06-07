@@ -38,7 +38,7 @@ const signinController = (req, res) => {
       });
     }
   })
-    .catch((e) => console.error(e.message));
+    .catch((e) => e.message);
 };
 
 export default signinController;

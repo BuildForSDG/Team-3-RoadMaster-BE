@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
         io.sockets.emit('reply', { message });
       });
     })
-      .catch((e) => console.error(e));
+      .catch((e) => e);
   });
 
   // Eyewitness report from observers
