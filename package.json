@@ -1,13 +1,13 @@
 {
-  "name": "js-starter",
+  "name": "road-master-ng",
   "version": "0.0.1",
-  "description": "A boilerplate for starting js code",
+  "description": "An emergency request app",
   "keywords": [
-    "js-starter",
-    "boilerplate"
+    "emergency",
+    "responders"
   ],
   "private": false,
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "types": "dist/index.d.ts",
   "directories": {
     "test": "tests"
@@ -15,14 +15,14 @@
   "scripts": {
     "test": "jest",
     "build": "babel src -d build/src",
-    "serve": "nodemon build/src/server",
+    "serve": "node build/src/server",
     "test:watch": "jest --watch",
     "test:cover": "jest --coverage",
     "lint": "eslint \"src/**/*.js\"",
     "start": "npm run build && npm run serve"
   },
   "author": {
-    "name": "Build For SDG",
+    "name": "Team 3 Build For SDG",
     "email": "buildforsdg@andela.com"
   },
   "homepage": "https://github.com/BuildForSDG/js-starter#readme",
@@ -34,6 +34,9 @@
     "url": "https://github.com/BuildForSDG/js-starter/issues"
   },
   "license": "MIT",
+  "engines": {
+    "node": "^12.16.0"
+  },
   "dependencies": {
     "bcrypt": "^4.0.1",
     "cors": "^2.8.5",
