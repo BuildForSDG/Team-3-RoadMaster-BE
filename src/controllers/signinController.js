@@ -12,10 +12,7 @@ const signinController = (req, res) => {
     });
     return;
   }
-  userModel.findOne(email).then((err, result) => {
-    if (err) {
-      res.status(401).json(err.message);
-    }
+  userModel.findOne(email).then((result) => {
     const passwordMatch = encoder.decode(password, result.password);
     if (passwordMatch) {
       const { _id: userId } = result;
@@ -29,7 +26,8 @@ const signinController = (req, res) => {
         data: {
           message: 'Your are now signed in',
           token,
-          userId
+          userId,
+          userName: result.name
         }
       };
       res.status(200).json(responseBody);
@@ -39,7 +37,8 @@ const signinController = (req, res) => {
         error: 'Password does not match'
       });
     }
-  });
+  })
+    .catch((e) => e.message);
 };
 
 export default signinController;

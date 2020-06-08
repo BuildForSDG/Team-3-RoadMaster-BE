@@ -27,10 +27,10 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3001/alluser/users
+GET http://localhost:3001/alluser
 
 ###
-GET http://localhost:3001/alluser/5ec2ff715035ac2144fa6978
+GET http://localhost:3001/alluser/5ed02aa53568754cc84cdd27
 
 ###
 POST http://localhost:3001/incident/report
@@ -49,7 +49,7 @@ Content-Type: application/json
 {
   "name": "john",
   "password": "doe",
-  "email": "jdoe@gmail.com",
+  "email": "tosin@gmail.com",
   "age": 109,
   "bloodType": "o+",
   "genotype": "AA",
@@ -65,7 +65,7 @@ Content-Type: application/json
 POST http://localhost:3001/signin/
 Content-Type: application/json
 
-{ "email": "sekinat@gmail.com", 
+{ "email": "sekinat@gmail.com",
   "password": "sekinat"
 }
 

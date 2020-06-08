@@ -21,6 +21,7 @@ build
 src/logic
 tests
 tests/app.test.js
+package-lock.json
 
 # Coverage directory used by tools like istanbul
 coverage

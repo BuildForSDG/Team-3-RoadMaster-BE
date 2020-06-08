@@ -1,5 +1,4 @@
 import { Router } from 'express';
-
 import sosController from '../controllers/sosController';
 
 const router = new Router();
