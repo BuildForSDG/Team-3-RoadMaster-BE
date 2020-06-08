@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
   // SOS sent from victim
   socket.on('sos', (data) => {
     // data = {userID: 'id', accidentLocation: {lat: '', lon: ''}}
-    userModel.findById(data.userID).then((user) => {
+    userModel.findById(data.userId).then((user) => {
       // find the nearest fire station
       responderModel.getAll().then((responders) => {
         // data.accidentLocation should be in format = { lat: 6.3445645, lon: 3.4533255 }
