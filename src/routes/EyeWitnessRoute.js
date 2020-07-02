@@ -8,7 +8,7 @@ const multipartMiddleware = multipart();
 
 // Route to post eye witness reports
 router.post('/eyewitness', multipartMiddleware, EyeWitnessController.report);
-router.get('/eyewitness', multipartMiddleware, EyeWitnessController.report);
+router.get('/eyewitness', multipartMiddleware, EyeWitnessController.list);
 
 // Route to get eye witness reports
 // consider making this get report a general route to list all reports
