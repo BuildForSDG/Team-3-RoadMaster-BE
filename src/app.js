@@ -1,9 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
+import { v2 as cloudinary } from 'cloudinary';
 import indexRouter from './routes';
 
 config();
+cloudinary.config({
+  cloud_name: process.env.CCN,
+  api_secret: process.env.CAS,
+  api_key: process.env.CAK
+});
 const app = express();
 
 app.use((req, res, next) => {
