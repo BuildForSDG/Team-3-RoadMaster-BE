@@ -16,7 +16,7 @@ const ewSchema = new Schema({
   creationTime: { type: Date, default: Date.now() }
 });
 
-const WitnessReport = mongoose.model('Incidentreports', ewSchema);
+const WitnessReport = mongoose.model('eyewitness', ewSchema);
 
 ewSchema.set('toJSON', { virtuals: true });
 
